@@ -1,0 +1,31 @@
+{
+  "name": "@jazebjaved/accordion",
+  "version": "1.0.0",
+  "description": "An easy way to add accordion in your react native app",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JazebJaved468/accordion-npm-package.git"
+  },
+  "author": "Jazeb_Javed <jazebjaved52@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JazebJaved468/accordion-npm-package/issues"
+  },
+  "homepage": "https://github.com/JazebJaved468/accordion-npm-package#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "accordion",
+    "collapsable",
+    "react",
+    "react-native",
+    "js"
+  ],
+  "dependencies": {
+    "react": "18.2.0",
+    "react-native": "0.73.5",
+    "react-native-svg": "15.0.0"
+  }
+}
