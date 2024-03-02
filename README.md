@@ -28,18 +28,22 @@ or
 
 `<Accordion title="Title" content={<View><Text>Content</Text></View>}/>`
 
-# version 1.0.3 (upcoming)
+# version 1.0.4 (upcoming)
 
 `custom styling for accordion.`
 
-# version 1.0.2 (current)
+# version 1.0.3 (current)
 
 `Updated deafult styling of accordion.`
 
-# version 1.0.1
+# version 1.0.2
 
 `Updated Readme.md`
 
-# version 1.0.0
+# version 1.0.1
 
 `Added basic accordion functionality.`
+
+# version 1.0.0
+
+`Initial release of accordion package.`
