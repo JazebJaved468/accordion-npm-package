@@ -1,2 +1,2 @@
 # accordion-npm-package
-Accordion
+react native accordion
