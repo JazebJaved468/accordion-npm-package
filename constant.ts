@@ -15,3 +15,4 @@ export const colors = {
     large: 20,
     xLarge: 24,
     };
+    

@@ -6,19 +6,46 @@
  */
 
 import React, {ReactNode} from 'react';
-
 import {useRef} from 'react';
-import {Animated, Easing, StyleSheet, TouchableHighlight} from 'react-native';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {
+  Text,
+  View,
+  Animated,
+  Easing,
+  StyleSheet,
+  TouchableHighlight,
+} from 'react-native';
 import CustomIcon from './CustomIcon';
 import {colors, fontSize} from './constant';
 
 export const Accordion = ({
   title,
   content,
+  px = 10,
+  py = 6,
+  bgC = colors.lightGray,
+  borderRadius = 6,
+  gap = 10,
+  titleColor = colors.black,
+  titleFontSize = fontSize.medium,
+  titleFontWeight = '600',
+  contentBgC = colors.white,
+  contentPx = 10,
+  contentPy = 6,
 }: {
   title: string;
   content: ReactNode;
+  px?: number;
+  py?: number;
+  bgC?: string;
+  borderRadius?: number;
+  gap?: number;
+  titleColor?: string;
+  titleFontSize?: number;
+  titleFontWeight?: string;
+  contentBgC?: string;
+  contentPx?: number;
+  contentPy?: number;
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const rotationValue = useRef(new Animated.Value(0)).current;
@@ -27,9 +54,9 @@ export const Accordion = ({
     setIsOpen(prev => !prev);
     Animated.timing(rotationValue, {
       toValue: isOpen ? 0 : 90,
-      duration: 300, // You can adjust the duration as per your preference
+      duration: 300,
       easing: Easing.linear,
-      useNativeDriver: false, // Set to true if using native driver is preferred
+      useNativeDriver: false,
     }).start();
   };
 
@@ -37,6 +64,7 @@ export const Accordion = ({
     inputRange: [0, 90],
     outputRange: ['0deg', '90deg'],
   });
+
   return (
     <View>
       <TouchableHighlight
@@ -44,51 +72,61 @@ export const Accordion = ({
         style={[
           styles.container,
           {
-            borderBottomLeftRadius: isOpen ? 0 : 6,
-            borderBottomRightRadius: isOpen ? 0 : 6,
+            borderRadius: borderRadius,
+            paddingHorizontal: px,
+            paddingVertical: py,
+            backgroundColor: bgC,
+            borderBottomLeftRadius: isOpen ? 0 : borderRadius,
+            borderBottomRightRadius: isOpen ? 0 : borderRadius,
           },
         ]}
         onPress={() => {
           onAccordionToggle();
         }}>
-        <View style={styles.flexRow}>
+        <View style={[styles.flexRow, {gap: gap}]}>
           <Animated.View
             style={{
               transform: [{rotate: interpolatedRotateAnimation}],
             }}>
             <CustomIcon />
           </Animated.View>
-          <Text style={styles.title}>{title}</Text>
+          <Text
+            style={[
+              styles.title,
+              {
+                color: titleColor,
+                fontSize: titleFontSize,
+                fontWeight: titleFontWeight,
+              },
+            ]}>
+            {title}
+          </Text>
         </View>
       </TouchableHighlight>
-      {isOpen && <View style={styles.content}>{content}</View>}
+      {isOpen && (
+        <View
+          style={[
+            styles.content,
+            {
+              backgroundColor: contentBgC,
+              paddingHorizontal: contentPx,
+              paddingVertical: contentPy,
+            },
+          ]}>
+          {content}
+        </View>
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.lightGray,
-    borderRadius: 6,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-  },
+  container: {},
+  title: {},
+  content: {},
   flexRow: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    gap: 10,
-  },
-
-  title: {
-    color: colors.black,
-    fontSize: fontSize.medium,
-    fontWeight: '600',
-  },
-
-  content: {
-    backgroundColor: colors.white,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
   },
 });
