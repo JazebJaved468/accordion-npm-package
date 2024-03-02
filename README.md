@@ -77,7 +77,7 @@ export default App;
 
 ### version 1.0.4 (current)
 
-custom styling for accordion title and content.
+New : custom styling for accordion title and content.
 
 ### version 1.0.3
 
