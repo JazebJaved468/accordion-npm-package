@@ -47,7 +47,6 @@ import Accordion from '@jazebjaved/accordion'
 | contentBgC      | string    | Background color of the content   | ❌       | #fff          |
 | contentPx       | number    | Padding on x-axis of the content  | ❌       | 10            |
 | contentPy       | number    | Padding on y-axis of the content  | ❌       | 6             |
-| --------------- | --------- | --------------------------------- | -------- | ------------  |
 
 ## Example
 
