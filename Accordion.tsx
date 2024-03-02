@@ -8,9 +8,10 @@
 import React, {ReactNode} from 'react';
 
 import {useRef} from 'react';
-import {Animated, Easing} from 'react-native';
+import {Animated, Easing, StyleSheet, TouchableHighlight} from 'react-native';
 import {Text, TouchableOpacity, View} from 'react-native';
 import CustomIcon from './CustomIcon';
+import {colors, fontSize} from './constant';
 
 export const Accordion = ({
   title,
@@ -38,31 +39,56 @@ export const Accordion = ({
   });
   return (
     <View>
-      <TouchableOpacity
-        style={{
-          backgroundColor: 'red',
-          // justifyContent: 'center',
-          padding: 0,
-        }}
+      <TouchableHighlight
+        underlayColor={colors.lightGray}
+        style={[
+          styles.container,
+          {
+            borderBottomLeftRadius: isOpen ? 0 : 6,
+            borderBottomRightRadius: isOpen ? 0 : 6,
+          },
+        ]}
         onPress={() => {
           onAccordionToggle();
         }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            gap: 10,
-          }}>
+        <View style={styles.flexRow}>
           <Animated.View
             style={{
               transform: [{rotate: interpolatedRotateAnimation}],
             }}>
             <CustomIcon />
           </Animated.View>
-          <Text>{title}</Text>
+          <Text style={styles.title}>{title}</Text>
         </View>
-      </TouchableOpacity>
-      {isOpen && <View>{content}</View>}
+      </TouchableHighlight>
+      {isOpen && <View style={styles.content}>{content}</View>}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.lightGray,
+    borderRadius: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  flexRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    gap: 10,
+  },
+
+  title: {
+    color: colors.black,
+    fontSize: fontSize.medium,
+    fontWeight: '600',
+  },
+
+  content: {
+    backgroundColor: colors.white,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+});

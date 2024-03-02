@@ -8,13 +8,33 @@ react native accordion
 or
 ` yarn add @jazebjaved/accordion`
 
+# Dependencies
+
+react-native-svg
+
+`npm install react-native-svg`
+or
+`yarn add react-native-svg`
+
 ## Usage
 
 `import Accordion from '@jazebjaved/accordion'`
 
+# Template
+
 `<Accordion title=<string> content={<ReactNode>}/>`
-example
+
+# Example
+
 `<Accordion title="Title" content={<View><Text>Content</Text></View>}/>`
+
+# version 1.0.3 (upcoming)
+
+`custom styling for accordion.`
+
+# version 1.0.2 (current)
+
+`Updated deafult styling of accordion.`
 
 # version 1.0.1
 
