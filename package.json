@@ -1,6 +1,6 @@
 {
   "name": "@jazebjaved/accordion",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An easy way to add accordion in your react native app",
   "main": "index.ts",
   "repository": {
